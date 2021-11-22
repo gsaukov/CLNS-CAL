@@ -10,10 +10,21 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    compile "org.springframework.boot:spring-boot-starter-actuator"
+    compile "org.springframework.boot:spring-boot-starter-web"
+
+    testCompile "org.springframework.boot:spring-boot-starter-test"
+    testCompile "org.testng:testng:${testngVersion}"
 }
 
-test {
-    useJUnitPlatform()
+task testng(type: Test) {
+    useTestNG()
+}
+
+bootJar {
+    archiveFileName = "CLNS-CAL.jar" //versionless jar for versions and artifactory use pipeline
+}
+
+jar {
+    enabled = false
 }

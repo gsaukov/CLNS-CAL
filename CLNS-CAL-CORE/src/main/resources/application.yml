@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: clns-cal
+#  datasource:
+#    url: jdbc:h2:file:./data/db/iassistantDb;MODE=Oracle
+#    username: sa
+#    password:
+#    type:
+#    driver-class-name: org.h2.Driver
+#    liquibase:
+#      change-log: classpath:db/changelog-master.yaml
+#
+#    hikari:
+#      minimumIdle: 2
+#      maximumPoolSize: 6
+#      idleTimeout: 30000
+#      maxLifetime: 2000000
+#      connectionTimeout: 30000
+#
+#  liquibase:
+#    change-log: classpath:db/changelog-master.yaml
+
+server:
+  port: 80
+  error.whitelabel.enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+#resilience4j:
+#  circuitbreaker:
+#    configs:
+#      default:
+#        registerHealthIndicator: true
+#        slidingWindowSize: 10
+#        minimumNumberOfCalls: 5
+#        permittedNumberOfCallsInHalfOpenState: 3
+#        automaticTransitionFromOpenToHalfOpenEnabled: true
+#        waitDurationInOpenState: 5s
+#        failureRateThreshold: 50
+#        eventConsumerBufferSize: 10
+#        recordExceptions:
+#          - org.springframework.web.client.HttpServerErrorException
+#          - java.util.concurrent.TimeoutException
+#          - java.io.IOException
+#    instances:
+#      xxxxxxxxxxController:
+#        baseConfig: default
+#      xxxxxxxxxxxController:
+#        baseConfig: default
+
+#check what hibernate does with every query you introduce.
+#logging.level.org.hibernate: TRACE
+#logging.level.org.springframework: TRACE

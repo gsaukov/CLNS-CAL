@@ -2,8 +2,8 @@ version: "3"
 
 services:
 
-  CLNS-CAL:
-    image: CLNS-CAL
-    container_name: CLNS-CAL
+  clns-cal:
+    image: clns-cal
+    container_name: clns-cal
     ports:
       - "80:80"
