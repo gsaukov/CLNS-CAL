@@ -1,0 +1,3 @@
+rootProject.name = 'CLNS-CAL'
+include 'CLNS-CAL-CORE'
+
