@@ -30,6 +30,8 @@ management:
       exposure:
         include: "*"
 
+
+# https://neuw.medium.com/resilence4j-circuit-breaker-spring-webflux-6731f7257965
 #resilience4j:
 #  circuitbreaker:
 #    configs:
