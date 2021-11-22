@@ -6,4 +6,4 @@ services:
     image: clns-cal
     container_name: clns-cal
     ports:
-      - "80:80"
+      - 80:80

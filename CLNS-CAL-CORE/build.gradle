@@ -1,9 +1,16 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.6.0'
+}
+
 apply plugin: "java"
 apply plugin: "org.springframework.boot"
 apply plugin: "io.spring.dependency-management"
 
 group 'org.clnscal.core'
 version "${appVersion}"
+sourceCompatibility = 15
+targetCompatibility = 15
 
 repositories {
     mavenCentral()
