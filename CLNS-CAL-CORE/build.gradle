@@ -9,8 +9,8 @@ apply plugin: "io.spring.dependency-management"
 
 group 'org.clnscal.core'
 version "${appVersion}"
-sourceCompatibility = 15
-targetCompatibility = 15
+sourceCompatibility = "${javaVersion}"
+targetCompatibility = "${javaVersion}"
 
 repositories {
     mavenCentral()
@@ -21,10 +21,12 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-web"
     compile "org.springframework.boot:spring-boot-starter-webflux"
 
-    compile "io.springfox:springfox-boot-starter:${springfoxVersion}"
+//    https://github.com/danielsason112/reactive-blog/blob/main/build.gradle
+    compile "org.springdoc:springdoc-openapi-webflux-ui:${openApiVersion}"
 
     testCompile "org.springframework.boot:spring-boot-starter-test"
     testCompile "org.testng:testng:${testngVersion}"
+    testCompile 'io.projectreactor:reactor-test'
 }
 
 task testng(type: Test) {
@@ -32,7 +34,7 @@ task testng(type: Test) {
 }
 
 bootJar {
-    archiveFileName = "CLNS-CAL.jar" //versionless jar for versions and artifactory use pipeline
+    archiveFileName = "CLNS-CAL.jar" //versionless jar. For versions and artifactory use pipeline.
 }
 
 jar {
