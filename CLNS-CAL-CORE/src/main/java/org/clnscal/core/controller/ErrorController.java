@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.HttpClientErrorException;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 import javax.naming.AuthenticationException;
 import java.util.NoSuchElementException;
@@ -39,9 +40,9 @@ public class ErrorController {
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler({HttpClientErrorException.class})
-    public String handleHttpClientException(
-            HttpClientErrorException ex) {
+    @ExceptionHandler({WebClientResponseException.class})
+    public String handleWebClientException(
+            WebClientResponseException ex) {
         return ex.getMessage();
     }
 

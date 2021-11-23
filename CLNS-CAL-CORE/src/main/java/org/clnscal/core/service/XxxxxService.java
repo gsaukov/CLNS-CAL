@@ -15,7 +15,7 @@ public class XxxxxService {
     private static final Logger LOG = LoggerFactory.getLogger(XxxxxService.class);
 
     @Autowired
-        WebClient webClient;
+    WebClient webClient;
 
     public Mono<MessageResponse> calculate(String userId, String itemId) {
         var user = getUser(userId);
