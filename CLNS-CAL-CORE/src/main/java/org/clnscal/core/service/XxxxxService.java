@@ -17,25 +17,26 @@ public class XxxxxService {
     @Autowired
         WebClient webClient;
 
-    public MessageResponse calculate(String userId, String itemId) {
+    public Mono<MessageResponse> calculate(String userId, String itemId) {
         var user = getUser(userId);
         var item = getItem(itemId);
-
-        var res = Mono.zip(user, item).flatMap(zip -> Mono.just(zip.getT1() + " " + zip.getT2())).block();
-        return new MessageResponse.Builder().withMessage(res).build();
+        return Mono.zip(user, item).flatMap(zip -> Mono.just(
+                new MessageResponse.Builder().withMessage(zip.getT1() + ", " + zip.getT2()).build()
+        ));
     }
 
     public Mono<String> getUser(String id) {
         return webClient.get()
-                .uri("/user/{id}", id)
+                .uri("/api/v1/pakettypes/{id}", id)
                 .retrieve()
                 .bodyToMono(String.class);
     }
 
     public Mono<String> getItem(String id) {
         return webClient.get()
-                .uri("/item/{id}", id)
+                .uri("/api/v1/pakettypes/{id}", id)
                 .retrieve()
                 .bodyToMono(String.class);
     }
+
 }

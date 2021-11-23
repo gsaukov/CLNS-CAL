@@ -11,6 +11,9 @@ public class MessageResponse {
         this.message = builder.message;
     }
 
+    public String getMessage() {
+        return message;
+    }
 
     public static final class Builder {
         private String message;
