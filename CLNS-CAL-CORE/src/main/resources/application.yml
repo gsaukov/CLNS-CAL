@@ -66,4 +66,4 @@ springdoc:
 
 #check what hibernate does with every query you introduce.
 #logging.level.org.hibernate: TRACE
-#logging.level.org.springframework: TRACE
+logging.level.org.springframework: WARN
